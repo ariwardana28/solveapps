@@ -15,6 +15,10 @@ class ViewController extends Controller
     {
         return view("user.index");
     }
+    public function tanggapan()
+    {
+
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +27,7 @@ class ViewController extends Controller
      */
     public function create()
     {
-        
+        return view("user.tanggapan");
     }
 
     /**
@@ -45,7 +49,7 @@ class ViewController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
