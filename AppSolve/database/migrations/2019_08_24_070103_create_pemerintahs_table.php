@@ -14,7 +14,9 @@ class CreatePemerintahsTable extends Migration
     public function up()
     {
         Schema::create('pemerintahs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_dinas');
+            $table->string('nama_dinas');
+            $table->string('alamat');
             $table->timestamps();
         });
     }
