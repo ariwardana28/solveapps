@@ -118,7 +118,7 @@
                       <select name="id_dinas" class="form-control">
                         <option >Pengajuan</option>
                         <option value="01">Infrastruktur</option>
-                        <option value="02">Tambang Ilegal</option>
+                        <option value="02">Tambang</option>
                       </select>
                       <br>
                       <select name="jenis_pesan" class="form-control">
@@ -166,32 +166,40 @@
           <div class="col-lg-6 content order-lg-1 order-2">
 
             <div class="icon-box wow fadeInUp">
-              <div class="icon"><img src="{{asset('open-book.png')}}"></div>
+              <div class="icon"><img src="{{asset('password.png')}}" style="height: 30px"></div>
+              <h4 class="title"><a href="">Silahkan klik Login agara dapat mengisi Laporan Pengaduan.</a></h4>
+              <p class="description"></p>
+
+            </div>
+            
+
+            <div class="icon-box wow fadeInUp">
+              <div class="icon"><img src="{{asset('open-book.png')}}" style="height: 30px"></div>
               <h4 class="title"><a href="">Silahkan klik tulisan "LAPOR" yang ada pada halaman awal.</a></h4>
               <p class="description"></p>
 
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-photo"></i></div>
+              <div class="icon"><img src="{{asset('checklist.png')}}" style="height: 30px"></div>
               <h4 class="title"><a href="">Selanjutnya akan ada Form pengaduan yang akan muncul, lalu isi form tersbut sesuai kebutuhan anda.</a></h4>
 
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <div class="icon"><img src="{{asset('enterprise.png')}}" style="height: 30px"></i></div>
               <h4 class="title"><a href="">Lalu pilih "INSTANSI TERKAIT" yang ada pada form tersebut.</a></h4>
               <p class="description">
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <div class="icon"><img src="{{asset('public-relation.png')}}" style="height: 30px"></div>
               <h4 class="title"><a href="">Lalu pilih "LANGSUNG atau MUSYAWARAH" yang ada pada form tersebut.</a></h4>
               <p class="description">
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <div class="icon"><img src="{{asset('tap.png')}}" style="height: 30px"></div>
               <h4 class="title"><a href="">Lalu Klik tulisan "LAPOR !!!" yang ada pada from tersebut.Laporan Anda akan terus ditindaklanjuti hingga terselesaikan</a></h4>
               <p class="description">
             </div>

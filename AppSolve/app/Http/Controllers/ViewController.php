@@ -14,7 +14,7 @@ class ViewController extends Controller
      */
     public function index()
     {
-        return view("user.tanggapan");
+        return view("user.api");
     }
     public function tanggapan()
     {
