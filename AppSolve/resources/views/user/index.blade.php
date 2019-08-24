@@ -157,32 +157,38 @@
           <div class="col-lg-6 content order-lg-1 order-2">
             
             <div class="icon-box wow fadeInUp">
-              <div class="icon"><i class="far fa-book-open"></i></div>
+             <div class="icon"><img style="height: 30px;" src="password.png"></div>
+              <h4 class="title"><a href="">Silahkan Login Agar dapat memberikan Laporan anda.</a></h4>
+              <p class="description"></p>
+
+            </div>
+            <div class="icon-box wow fadeInUp">
+             <div class="icon"><img style="height: 30px;" src="open-book.png"></div>
               <h4 class="title"><a href="">Silahkan klik tulisan "LAPOR" yang ada pada halaman awal.</a></h4>
               <p class="description"></p>
 
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-photo"></i></div>
+              <div class="icon"><img style="height: 30px;" src="checklist.png"></div>
               <h4 class="title"><a href="">Selanjutnya akan ada Form pengaduan yang akan muncul, lalu isi form tersbut sesuai kebutuhan anda.</a></h4>
               
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <div class="icon"><img style="height: 30px;" src="enterprise.png"></div>
               <h4 class="title"><a href="">Lalu pilih "INSTANSI TERKAIT" yang ada pada form tersebut.</a></h4>
               <p class="description">
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <div class="icon"><img style="height: 30px;" src="public-relation.png"></div>
               <h4 class="title"><a href="">Lalu pilih "LANGSUNG atau MUSYAWARAH" yang ada pada form tersebut.</a></h4>
               <p class="description">
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <div class="icon"><img style="height: 30px;" src="tap.png"></i></div>
               <h4 class="title"><a href="">Lalu Klik tulisan "LAPOR !!!" yang ada pada from tersebut.Laporan Anda akan terus ditindaklanjuti hingga terselesaikan</a></h4>
               <p class="description">
             </div>

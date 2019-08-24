@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('');
+    return view('user.index');
 });
 
 Route::get('/test','Auth\RegisterController@test');

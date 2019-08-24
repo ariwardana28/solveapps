@@ -165,7 +165,7 @@
           <div class="col-lg-6 content order-lg-1 order-2">
 
             <div class="icon-box wow fadeInUp">
-              <div class="icon"><i class="far fa-book-open"></i></div>
+              <div class="icon"><img src="{{assets('open-book')}}"></div>
               <h4 class="title"><a href="">Silahkan klik tulisan "LAPOR" yang ada pada halaman awal.</a></h4>
               <p class="description"></p>
 
