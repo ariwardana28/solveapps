@@ -69,15 +69,15 @@
               <li><a href="{{ route('logout') }} "onclick="event.preventDefault();document.getElementById('logout-form').submit();" >{{ __('Logout') }}</a></li>
                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
               <li>
-                  
+
                 </li>
             </ul>
           </li>
           @endguest
-             
+
         </ul>
       </nav><!-- .main-nav -->
-      
+
     </div>
   </header><!-- #header -->
 
@@ -108,37 +108,37 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form method="" action="">
+                    <form method="POST" action="{{route('view.store')}}">
                       @csrf
                       <select style="background-color: white; color: white ;border-color: white">
                         <option  value="{{ Auth::user()->id }}">{{ Auth::user()->name }}</option>
                       </select>
-                      <textarea class="form-control" style="height: 250px;" placeholder="Apa Yang Anda Ingin Laporkan"></textarea>
+                      <textarea class="form-control" style="height: 250px;" name="keluhan"  placeholder="Apa Yang Anda Ingin Laporkan"></textarea>
                       <br>
-                      <select class="form-control">
-                        <option>Pengajuan</option>
-                        <option>Infrastruktur</option>
-                        <option>Tambang Ilegal</option>
+                      <select name="id_dinas" class="form-control">
+                        <option >Pengajuan</option>
+                        <option value="01">Infrastruktur</option>
+                        <option value="02">Tambang Ilegal</option>
                       </select>
                       <br>
-                      <select class="form-control">
+                      <select name="jenis_pesan" class="form-control">
                         <option>Jenis Pesan</option>
-                        <option>Public</option>
-                        <option>Private</option>
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
                       </select>
-                      <br>  
-                      <input  class="form-control" type="text" placeholder="Alamat" name="">
-                    </form>
-                  </div>
-                  <div class="modal-footer">
+                      <br>
+                      <input name="alamat"  class="form-control" type="text" placeholder="Alamat" name="">
+                      <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <input type="submit" name="submit" class="btn btn-primary">
+                  </div>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
 <!-- endmodal -->
-          
+
           <a href="#about" class="btn-services scrollto">Petunjuk</a>
         </div>
       </div>
@@ -163,7 +163,7 @@
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            
+
             <div class="icon-box wow fadeInUp">
               <div class="icon"><i class="far fa-book-open"></i></div>
               <h4 class="title"><a href="">Silahkan klik tulisan "LAPOR" yang ada pada halaman awal.</a></h4>
@@ -174,7 +174,7 @@
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
               <div class="icon"><i class="fa fa-photo"></i></div>
               <h4 class="title"><a href="">Selanjutnya akan ada Form pengaduan yang akan muncul, lalu isi form tersbut sesuai kebutuhan anda.</a></h4>
-              
+
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
@@ -202,7 +202,7 @@
           </div>
         </div>
 
-        
+
 
       </div>
     </section><!-- #about -->
@@ -211,10 +211,10 @@
       <div class="container">
         <header class="section-header">
           <h3>Banyaknya Laporan</h3>
-          
+
         </header>
 
-        
+
 
         <div class="row counters">
 
@@ -229,7 +229,7 @@
             <p>Terselesaikan</p>
           </div>
 
-  
+
         </div>
 
 
@@ -239,7 +239,7 @@
     <!--==========================
       Portfolio Section
     ============================-->
-  
+
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->

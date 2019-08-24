@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Lapor;
 
 class ViewController extends Controller
 {
@@ -38,7 +39,26 @@ class ViewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'id_user' => 'required',
+
+            'keluhan' => 'required',
+
+            'id_dinas' => 'required',
+
+            'jenis_pesan' => 'required',
+
+            'alamat' => 'required',
+
+
+        ]);
+
+        Lapor::create($request->all());
+
+        return redirect()->route('user.index')
+
+                        ->with('success','Data Admin created successfully.');
     }
 
     /**
@@ -49,7 +69,7 @@ class ViewController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**

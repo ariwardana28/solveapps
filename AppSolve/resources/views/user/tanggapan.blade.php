@@ -72,23 +72,26 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
+                <a style="font-size: 40px" href="index.html">SolveApp</a>
                 <strong><a href="index.html"><img src="{{asset('img/logo/logosn.png')}}" alt="" /></a></strong>
+                <br>
+                <br>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
-                        
-                            <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
+                         <li>
+                            <a title="Landing Page" href="{{route('view.index')}}" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Home</span></a>
                         </li>
-                        
-                     
-                
-                     
-                     
-                     
-                      
-                  
+                        <li>
+                            <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Tanggapan</span></a>
+                        </li>
+                         <li>
+                            <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Profil</span></a>
+                        </li>
+                         <li>
+                            <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Logot</span></a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -123,23 +126,7 @@
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                         <div class="header-top-menu tabl-d-n">
                                             <ul class="nav navbar-nav mai-top-nav">
-                                                <li class="nav-item"><a href="#" class="nav-link">Home</a>
-                                                </li>
-                                                <li class="nav-item"><a href="#" class="nav-link">About</a>
-                                                </li>
-                                                <li class="nav-item"><a href="#" class="nav-link">Services</a>
-                                                </li>
-                                                <li class="nav-item dropdown res-dis-nn">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Project <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
-                                                    <div role="menu" class="dropdown-menu animated zoomIn">
-                                                        <a href="#" class="dropdown-item">Documentation</a>
-                                                        <a href="#" class="dropdown-item">Expert Backend</a>
-                                                        <a href="#" class="dropdown-item">Expert FrontEnd</a>
-                                                        <a href="#" class="dropdown-item">Contact Support</a>
-                                                    </div>
-                                                </li>
-                                                <li class="nav-item"><a href="#" class="nav-link">Support</a>
-                                                </li>
+                                                
                                             </ul>
                                         </div>
                                     </div>
@@ -415,12 +402,7 @@
             </div>
         </div>
       
-        
-                
-                </div>
-            </div>
-        </div>
-        
+       
 
     <!-- jquery
         ============================================ -->
