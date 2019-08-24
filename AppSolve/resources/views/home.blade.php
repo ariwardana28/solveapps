@@ -110,7 +110,7 @@
                   <div class="modal-body">
                     <form method="POST" action="{{route('view.store')}}">
                       @csrf
-                      <select style="background-color: white; color: white ;border-color: white">
+                      <select name="id_user" style="background-color: white; color: white ;border-color: white">
                         <option  value="{{ Auth::user()->id }}">{{ Auth::user()->name }}</option>
                       </select>
                       <textarea class="form-control" style="height: 250px;" name="keluhan"  placeholder="Apa Yang Anda Ingin Laporkan"></textarea>

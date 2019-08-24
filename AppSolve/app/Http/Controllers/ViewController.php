@@ -55,7 +55,7 @@ class ViewController extends Controller
 
         Lapor::create($request->all());
 
-        return redirect()->route('user.index')
+        return redirect()->route('view.create')
 
                         ->with('success','Data Admin created successfully.');
 

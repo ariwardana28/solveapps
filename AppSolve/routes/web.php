@@ -22,7 +22,3 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('view','ViewController');
-<<<<<<< HEAD
-
-=======
->>>>>>> e3e73b8232195b02d177c39ebd941bf1614e3450
