@@ -19,6 +19,6 @@ Route::get('/test','Auth\RegisterController@test');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'viewController@index')->name('home');
 
 Route::resource('view','ViewController');

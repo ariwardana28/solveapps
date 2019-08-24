@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+
 
 class RegisterController extends Controller
 {
@@ -28,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/test';
 
     /**
      * Create a new controller instance.
@@ -61,26 +64,16 @@ class RegisterController extends Controller
 
     }
 
-
-    /**
-     * Create a new user instance after a valid registration.
+ /**
+     * Handle a registration request for the application.
      *
-     * @param  array  $data
-     * @return \App\User
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-
-
-    protected function create(array $data)
+    public function register(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'nik' => $data['nik'],
-            'alamat' => $data['alamat'],
-            'notelpon' => $data['notelpon'],
+        $this->validator($request->all())->validate();
 
-        ]);
         $data = [
             "maxAttempt"=> "0",
             "phoneNum"=> "085350439065",
@@ -112,6 +105,35 @@ class RegisterController extends Controller
 
         // Close cURL session handle
         curl_close($ch);
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+
+
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'nik' => $data['nik'],
+            'alamat' => $data['alamat'],
+            'notelpon' => $data['notelpon'],
+
+        ]);
+
 
 
     }
