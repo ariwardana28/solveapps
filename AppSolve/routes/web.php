@@ -21,4 +21,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/','ViewController');
+Route::resource('view','ViewController');
+
