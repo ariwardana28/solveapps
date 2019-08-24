@@ -87,7 +87,7 @@
       <div class="intro-info">
         <h2>Layanan Aspirasi dan Pengaduan Online Rakyat</h2>
         <div>
-          <a href="" class="btn-get-started scrollto">Lapor!!!</a>
+          <a href="" class="btn-services scrollto">Lapor!!!</a>
           <a href="#about" class="btn-services scrollto">Petunjuk</a>
         </div>
       </div>
@@ -148,8 +148,8 @@
 
           </div>
 
-          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
-            <img src="img/about-img.svg" class="img-fluid" alt="">
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp" >
+            <img style="padding-left: 100px;" src="img/about-img.svg" class="img-fluid" alt="">
           </div>
         </div>
 
@@ -190,6 +190,7 @@
           </div>
   
         </div>
+
 
       </div>
     </section>
