@@ -38,8 +38,7 @@ class ViewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $request->validate([
+    {        $request->validate([
 
             'id_user' => 'required',
 
@@ -59,6 +58,7 @@ class ViewController extends Controller
         return redirect()->route('user.index')
 
                         ->with('success','Data Admin created successfully.');
+
     }
 
     /**

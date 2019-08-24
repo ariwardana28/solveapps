@@ -103,12 +103,12 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form method="" action="">
+                    <form method="{{ route('view.store')}}" action="post">
                       @csrf
                       <textarea class="form-control" style="height: 250px;" placeholder="Apa Yang Anda Ingin Laporkan"></textarea>
                       <br>
                       <select class="form-control">
-                        <option>Pengajuan</option>
+                        <option >Pengajuan</option>
                         <option>Infrastruktur</option>
                         <option>Tambang Ilegal</option>
                       </select>
