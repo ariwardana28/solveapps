@@ -34,6 +34,78 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+
+  <style type="text/css">
+    .log{
+            text-align: center;
+            height: 400px;
+            width: 350px;
+            background-color: #C0C0C0;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            border-top-left-radius: 14px;
+            border-bottom-left-radius: 14px;
+            font-family: Century Gothic;
+        }
+        .logs{
+            padding-left:20px;
+            height: 400px;
+            width: 350px;
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            border-top-right-radius: 14px;
+            border-bottom-right-radius: 14px;
+            font-family: Century Gothic;
+        }
+        input[type=email], select {
+            width: 320px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type=password], select {
+            width: 320px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+
+        }
+        input[type=submit] {
+            width: 160px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Century Gothic;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+       .back {
+            border: none;
+            color: white;
+            background-color: red;
+            padding: 12px 62px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            font-family: Century Gothic;
+        }
+
+        .back hover {
+            background-color: #45a049 ;
+        }
+  </style>
 </head>
 
 
@@ -55,24 +127,29 @@
         <ul>
           @guest
             <li class="">
-              <a href="{{ route('login') }}">{{ __('Login') }}</a>
+              <a href="" data-toggle="modal" data-target="#exampleModalScrollabl">{{ __('Login') }}</a>
             </li>
             @if (Route::has('register'))
                 <li>
-                  <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                  <a href="" data-toggle="modal" data-target="#exampleModalScrollab">{{ __('Register') }}</a>
                 </li>
             @endif
           @else
             <li class="drop-down"><a href="">{{ Auth::user()->name }}</a>
             <ul>
-              <li><a href="{{ route('logout') }}">{{ __('Logout') }}</a></li>
+              <a href="{{ route('view.create') }}">Tanggapan</a>
+              <li><a href="{{ route('logout') }} "onclick="event.preventDefault();document.getElementById('logout-form').submit();" >{{ __('Logout') }}</a></li>
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+              <li>
+
+                </li>
             </ul>
           </li>
           @endguest
-             
+
         </ul>
       </nav><!-- .main-nav -->
-      
+
     </div>
   </header><!-- #header -->
 
@@ -103,35 +180,200 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form method="{{ route('view.store')}}" action="post">
-                      @csrf
-                      <textarea class="form-control" style="height: 250px;" placeholder="Apa Yang Anda Ingin Laporkan"></textarea>
+                    <form method="POST" action="">
+                     
+                      <textarea class="form-control" style="height: 250px;" name="keluhan"  placeholder="Apa Yang Anda Ingin Laporkan"></textarea>
                       <br>
-                      <select class="form-control">
+                      <select name="id_dinas" class="form-control">
                         <option >Pengajuan</option>
-                        <option>Infrastruktur</option>
-                        <option>Tambang Ilegal</option>
+                        <option value="01">Infrastruktur</option>
+                        <option value="02">Tambang Ilegal</option>
                       </select>
                       <br>
-                      <select class="form-control">
+                      <select name="jenis_pesan" class="form-control">
                         <option>Jenis Pesan</option>
-                        <option>Public</option>
-                        <option>Private</option>
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
                       </select>
-                      <br>  
-                      <input  class="form-control" type="text" placeholder="Alamat" name="">
-                    </form>
-                  </div>
-                  <div class="modal-footer">
+                      <br>
+                      <input name="alamat"  class="form-control" type="text" placeholder="Alamat" name="">
+                      <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <input type="submit" name="submit" class="btn btn-primary">
+                  </div>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
 <!-- endmodal -->
-          
-          <a href="#about" class="btn-services scrollto">Petunjuk</a>
+
+ <!-- Modal login -->
+            <div class="modal fade" id="exampleModalScrollabl" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitl" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="POST" action="{{ route('login') }}">
+                                @csrf
+                                    <strong>E-mail:</strong>
+                                    <div class="col-md-6">
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                            @if ($errors->has('email'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
+                                    </div>
+
+                                    <strong>Password:</strong>
+                                       <div class="col-md-6">
+                                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                            @if ($errors->has('password'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
+                                    </div>
+
+                                    <input type="submit" value="Login">
+
+                                </form>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+<!-- endmodal -->
+ <!-- Modal Register -->
+            <div class="modal fade" id="exampleModalScrollab" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Registre</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        {{ csrf_field() }}      
+
+                        <div class="form-group row">
+                            <label for="nik" class="col-md-4 col-form-label text-md-right">{{ __('NIK') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="nik" type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ old('nik') }}" required autocomplete="nik" autofocus>
+
+                                @error('nik')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                         <div class="form-group row">
+                            <label for="notelpon" class="col-md-4 col-form-label text-md-right">{{ __('No Telpon') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="notelpon" type="text" class="form-control @error('notelpon') is-invalid @enderror" name="notelpon" value="{{ old('notelpon') }}" required autocomplete="notelpon" autofocus>
+
+                                @error('notelpon')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="alamat" class="col-md-4 col-form-label text-md-right">{{ __('Alamat') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" required autocomplete="alamat" autofocus>
+
+                                @error('alamat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+<!-- endmodal -->
+
+
+          <a href="#about" class="btn-get-started scrollto">Petunjuk</a>
         </div>
       </div>
 
@@ -148,47 +390,42 @@
 
         <header class="section-header">
           <h3>Petunjuk</h3>
-          <br>
+          <p></p>
+          
           <!-- <p>Tata Cara tentang penggunaan Sistem</p> -->
         </header>
 
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            
-            <div class="icon-box wow fadeInUp">
-             <div class="icon"><img style="height: 30px;" src="password.png"></div>
-              <h4 class="title"><a href="">Silahkan Login Agar dapat memberikan Laporan anda.</a></h4>
-              <p class="description"></p>
 
-            </div>
             <div class="icon-box wow fadeInUp">
-             <div class="icon"><img style="height: 30px;" src="open-book.png"></div>
+              <div class="icon"><img src="{{asset('open-book.png')}}"></div>
               <h4 class="title"><a href="">Silahkan klik tulisan "LAPOR" yang ada pada halaman awal.</a></h4>
               <p class="description"></p>
 
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-              <div class="icon"><img style="height: 30px;" src="checklist.png"></div>
+              <div class="icon"><i class="fa fa-photo"></i></div>
               <h4 class="title"><a href="">Selanjutnya akan ada Form pengaduan yang akan muncul, lalu isi form tersbut sesuai kebutuhan anda.</a></h4>
-              
+
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><img style="height: 30px;" src="enterprise.png"></div>
+              <div class="icon"><i class="fa fa-bar-chart"></i></div>
               <h4 class="title"><a href="">Lalu pilih "INSTANSI TERKAIT" yang ada pada form tersebut.</a></h4>
               <p class="description">
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><img style="height: 30px;" src="public-relation.png"></div>
+              <div class="icon"><i class="fa fa-bar-chart"></i></div>
               <h4 class="title"><a href="">Lalu pilih "LANGSUNG atau MUSYAWARAH" yang ada pada form tersebut.</a></h4>
               <p class="description">
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><img style="height: 30px;" src="tap.png"></i></div>
+              <div class="icon"><i class="fa fa-bar-chart"></i></div>
               <h4 class="title"><a href="">Lalu Klik tulisan "LAPOR !!!" yang ada pada from tersebut.Laporan Anda akan terus ditindaklanjuti hingga terselesaikan</a></h4>
               <p class="description">
             </div>
@@ -200,7 +437,7 @@
           </div>
         </div>
 
-        
+
 
       </div>
     </section><!-- #about -->
@@ -209,10 +446,10 @@
       <div class="container">
         <header class="section-header">
           <h3>Banyaknya Laporan</h3>
-          
+
         </header>
 
-        
+
 
         <div class="row counters">
 
@@ -227,7 +464,7 @@
             <p>Terselesaikan</p>
           </div>
 
-  
+
         </div>
 
 
@@ -237,7 +474,7 @@
     <!--==========================
       Portfolio Section
     ============================-->
-  
+
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->

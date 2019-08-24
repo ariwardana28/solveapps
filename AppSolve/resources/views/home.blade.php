@@ -139,7 +139,7 @@
             </div>
 <!-- endmodal -->
 
-          <a href="#about" class="btn-services scrollto">Petunjuk</a>
+          <a href="#about" class="btn-get-started scrollto">Petunjuk</a>
         </div>
       </div>
 
@@ -156,7 +156,8 @@
 
         <header class="section-header">
           <h3>Petunjuk</h3>
-          <br>
+          <p></p>
+          
           <!-- <p>Tata Cara tentang penggunaan Sistem</p> -->
         </header>
 
@@ -165,7 +166,7 @@
           <div class="col-lg-6 content order-lg-1 order-2">
 
             <div class="icon-box wow fadeInUp">
-              <div class="icon"><img src="{{assets('open-book')}}"></div>
+              <div class="icon"><img src="{{asset('open-book.png')}}"></div>
               <h4 class="title"><a href="">Silahkan klik tulisan "LAPOR" yang ada pada halaman awal.</a></h4>
               <p class="description"></p>
 

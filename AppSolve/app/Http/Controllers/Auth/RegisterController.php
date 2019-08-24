@@ -81,7 +81,7 @@ class RegisterController extends Controller
             'notelpon' => $data['notelpon'],
 
         ]);
-         $data = [
+        $data = [
             "maxAttempt"=> "0",
             "phoneNum"=> "085350439065",
             "expireIn"=> "300",
@@ -92,15 +92,16 @@ class RegisterController extends Controller
         $payload = json_encode($data);
 
         // Prepare new cURL resource
-        $ch = curl_init('https://api.thebigbox.id/sms-otp/1.0.0/otp/qfvkCVl1skXlcNRbwgXiQAzSBTwHxYeR');
+        $ch = curl_init('https://api.thebigbox.id/sms-otp/1.0.0/otp/t5AJCw3EJIEebn2Ha2juqEesKMut4Sp6');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 
         // Set HTTP Header for POST request
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'x-api-key:qfvkCVl1skXlcNRbwgXiQAzSBTwHxYeR',
+            'x-api-key:t5AJCw3EJIEebn2Ha2juqEesKMut4Sp6',
             'Accept:application/json',
             'Content-Type: application/json',
             'Content-Length: ' . strlen($payload))
@@ -111,6 +112,7 @@ class RegisterController extends Controller
 
         // Close cURL session handle
         curl_close($ch);
+
 
     }
 
@@ -120,14 +122,14 @@ class RegisterController extends Controller
             "maxAttempt"=> "0",
             "phoneNum"=> "085350439065",
             "expireIn"=> "300",
-            "content"=> "Masukan nomor verifikasi anda{{otp}}",
+            "content"=> "Masukan nomor verifikasi anda {{otp}}",
             "digit"=> "6"
         ];
 
         $payload = json_encode($data);
 
         // Prepare new cURL resource
-        $ch = curl_init('https://api.thebigbox.id/sms-otp/1.0.0/otp/qfvkCVl1skXlcNRbwgXiQAzSBTwHxYeR');
+        $ch = curl_init('https://api.thebigbox.id/sms-otp/1.0.0/otp/t5AJCw3EJIEebn2Ha2juqEesKMut4Sp6');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         curl_setopt($ch, CURLOPT_POST, true);
@@ -136,7 +138,7 @@ class RegisterController extends Controller
 
         // Set HTTP Header for POST request
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'x-api-key:qfvkCVl1skXlcNRbwgXiQAzSBTwHxYeR',
+            'x-api-key:t5AJCw3EJIEebn2Ha2juqEesKMut4Sp6',
             'Accept:application/json',
             'Content-Type: application/json',
             'Content-Length: ' . strlen($payload))
@@ -147,6 +149,5 @@ class RegisterController extends Controller
 
         // Close cURL session handle
         curl_close($ch);
-        return $result;
     }
 }
