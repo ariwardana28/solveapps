@@ -24,3 +24,4 @@ Route::get('/home', 'viewController@index')->name('home');
 Route::get('/homes', 'HomeController@index')->name('homes');
 
 Route::resource('view','ViewController');
+ Route::resource('lapor','PesanController');

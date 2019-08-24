@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lapor;
+use Illuminate\Foundation\Auth;
 
-class ViewController extends Controller
+class PesanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +15,8 @@ class ViewController extends Controller
      */
     public function index()
     {
-        return view("user.api");
-    }
-    public function pesan()
-    {
-       
+        $lapors = Lapor::all();
+        return view('user.tanggapan',compact('lapors'));
     }
 
     /**
@@ -28,7 +26,7 @@ class ViewController extends Controller
      */
     public function create()
     {
-        //return view("user.tanggapan");
+        //
     }
 
     /**
@@ -38,28 +36,8 @@ class ViewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
-        $request->validate([
-
-            'id_user' => 'required',
-
-            'keluhan' => 'required',
-
-            'id_dinas' => 'required',
-
-            'jenis_pesan' => 'required',
-
-            'alamat' => 'required',
-
-
-        ]);
-
-        Lapor::create($request->all());
-
-        return redirect()->route('homes')
-
-                        ->with('success','Data Admin created successfully.');
-
+    {
+        //
     }
 
     /**
@@ -70,7 +48,7 @@ class ViewController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**

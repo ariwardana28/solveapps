@@ -14,10 +14,12 @@ class CreateLaporsTable extends Migration
     public function up()
     {
         Schema::create('lapors', function (Blueprint $table) {
-            $table->bigIncrements('id_lapor');
-            $table->integer('id_user');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->string('keluhan');
-            $table->integer('id_dinas');
+            $table->unsignedBigInteger('id_dinas');
+            $table->foreign('id_dinas')->references('id')->on('pemerintahs');
             $table->string('jenis_pesan');
             $table->string('alamat');
             $table->timestamps();

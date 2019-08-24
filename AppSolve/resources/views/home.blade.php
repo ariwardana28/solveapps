@@ -65,7 +65,7 @@
           @else
             <li class="drop-down"><a href="">{{ Auth::user()->name }}</a>
             <ul>
-              <a href="{{ route('view.create') }}">Tanggapan</a>
+              <a href="{{ route('lapor.index') }}">Pesan</a>
               <li><a href="{{ route('logout') }} "onclick="event.preventDefault();document.getElementById('logout-form').submit();" >{{ __('Logout') }}</a></li>
                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
               <li>
@@ -117,8 +117,8 @@
                       <br>
                       <select name="id_dinas" class="form-control">
                         <option >Pengajuan</option>
-                        <option value="01">Infrastruktur</option>
-                        <option value="02">Tambang</option>
+                        <option value="1">Infrastruktur</option>
+                        <option value="2">Tambang</option>
                       </select>
                       <br>
                       <select name="jenis_pesan" class="form-control">
@@ -130,7 +130,7 @@
                       <input name="alamat"  class="form-control" type="text" placeholder="Alamat" name="">
                       <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" name="submit" class="btn btn-primary">
+                    <input type="submit"  class="btn btn-primary">
                   </div>
                     </form>
                   </div>

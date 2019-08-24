@@ -15,8 +15,8 @@ class CreateTanggapansTable extends Migration
     {
         Schema::create('tanggapans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_dinas');
-            $table->integer('id_user');
+            $table->unsignedBigInteger('id_laporan');
+            $table->foreign('id_laporan')->references('id')->on('lapors');
             $table->string('tanggapan');
             $table->timestamps();
         });

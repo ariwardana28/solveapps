@@ -137,7 +137,7 @@
           @else
             <li class="drop-down"><a href="">{{ Auth::user()->name }}</a>
             <ul>
-              <a href="{{ route('view.create') }}">Tanggapan</a>
+              <a href="{{ route('pesan.index') }}">Pesan</a>
               <li><a href="{{ route('logout') }} "onclick="event.preventDefault();document.getElementById('logout-form').submit();" >{{ __('Logout') }}</a></li>
                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
               <li>
