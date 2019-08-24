@@ -36,6 +36,7 @@
   ======================================================= -->
 </head>
 
+
 <body>
 
   <!--==========================
@@ -64,7 +65,11 @@
           @else
             <li class="drop-down"><a href="">{{ Auth::user()->name }}</a>
             <ul>
-              <li><a href="{{ route('logout') }}">{{ __('Logout') }}</a></li>
+              <li><a href="{{ route('logout') }} "onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" >{{ __('Logout') }}</a></li>
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
             </ul>
           </li>
           @endguest
@@ -96,13 +101,33 @@
               <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Laporkan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    ...
+                    <form method="" action="">
+                      @csrf
+                      <select style="background-color: white; color: white ;border-color: white">
+                        <option  value="{{ Auth::user()->id }}">{{ Auth::user()->name }}</option>
+                      </select>
+                      <textarea class="form-control" style="height: 250px;" placeholder="Apa Yang Anda Ingin Laporkan"></textarea>
+                      <br>
+                      <select class="form-control">
+                        <option>Pengajuan</option>
+                        <option>Infrastruktur</option>
+                        <option>Tambang Ilegal</option>
+                      </select>
+                      <br>
+                      <select class="form-control">
+                        <option>Jenis Pesan</option>
+                        <option>Public</option>
+                        <option>Private</option>
+                      </select>
+                      <br>  
+                      <input  class="form-control" type="text" placeholder="Alamat" name="">
+                    </form>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
